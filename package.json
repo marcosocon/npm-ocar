@@ -8,6 +8,7 @@
   },
   "author": "Marcos Ocón <oconmarcos97@gmail.com>",
   "license": "MIT",
+  "git repository": "https://github.com/marcosocon/npm-ocar.git",
   "dependencies": {
     "request": "^2.69.0"
   }
