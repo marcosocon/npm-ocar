@@ -10,7 +10,7 @@ exports.ocarequest = function(number){
   },
   function(err,response,body){
     if (response.body.indexOf('"success":false') != -1) {
-      console.log("nil");
+      console.log("no se encontraron " + type);
     }
     else{
       var res = JSON.parse(body)
