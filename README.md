@@ -10,22 +10,23 @@ Ocar is a minimal Node Package to get the package information on the OCA service
 You need Gulp installed globally:
 
 ```sh
-$ npm install ocar
+$ npm install ocar --save
 ```
 ### Usage
 ```sh
 var Ocar = require('ocar');
-ocar.ocarequest(your_track_id);
+Ocar(your_track_id , type);
 ```
+Where 'type' can be "dni", "cartas", "partidas", "paquetes"
 
 ### Contributing
 
 Want to contribute? Great!
-Bug reports and pull requests are welcome on GitHub at 
+Bug reports and pull requests are welcome on GitHub at
 https://github.com/marcosocon/npm-ocar.
 
 ### Version
-1.0.2
+1.1.0
 
 License
 ----
