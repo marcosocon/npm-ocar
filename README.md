@@ -7,8 +7,6 @@ Ocar is a minimal Node Package to get the package information on the OCA service
 
 ### Installation
 
-You need Gulp installed globally:
-
 ```sh
 $ npm install ocar --save
 ```
