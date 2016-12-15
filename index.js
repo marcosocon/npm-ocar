@@ -1,11 +1,12 @@
 var request = require("request");
 module.exports = function(number, type){
+	var validTypes = ['dni', 'cartas', 'partidas', 'paquetes'];
 	if (!number || !type) {
-		console.log("Por favor ingresa ambos valores, track id y tipo");
+		console.log("Please enter 2 values, track id and type.");
 		return false;
 	}
-	if (type !== 'dni' && type !== 'cartas' && type !== 'partidas' && type !== 'paquetes') {
-		console.log("Tipo de envio invalido");
+	if (validTypes.indexOf(type) === -1) {
+		console.log("Invalid Type");
 		return false;
 	}
 	request.get({
@@ -24,13 +25,13 @@ module.exports = function(number, type){
 					"Fecha": array.fecha,
 					"Sucursal": array.sucursal
 				};
-				console.log(result);
 				return result;
 			} else {
-				console.log("No se encontraron", type);
+				console.log("There's no ", type);
 			}
 		} else {
-			console.log("Ha ocurrido un error");
+			console.log("An error has occurred");
+			return false;
 		}
 	});
 };
