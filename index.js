@@ -1,5 +1,5 @@
 var request = require("request");
-module.exports = function(number, type){
+module.exports = function (number, type){
 	var validTypes = ['dni', 'cartas', 'partidas', 'paquetes'];
 	if (!number || !type) {
 		console.log("Please enter 2 values, track id and type.");
@@ -9,22 +9,14 @@ module.exports = function(number, type){
 		console.log("Invalid Type");
 		return false;
 	}
+	var url = 'http://www.oca.com.ar/?q=package-locator&type='+type+'&number='+number;
 	request.get({
-		url:'https://www.oca.com.ar/?q=package-locator&type='+type+'&number='+number
-	},
-	function(req, response, err){
+		url: url
+	},function(req, response, err){
 		if (response.body) {
 			var body = JSON.parse(response.body);
 			if (body.success) {
-				var array = body.data[0];
-				var result = {
-					"Tipo": array.tipo,
-					"Numero de pieza" : array.numeroPieza,
-					"Nombre del titular" : array.titular,
-					"Descripcion": array.descripcion,
-					"Fecha": array.fecha,
-					"Sucursal": array.sucursal
-				};
+				var result = body.data[0];
 				return result;
 			} else {
 				console.log("There's no ", type);
